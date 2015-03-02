@@ -43,7 +43,7 @@
         _statusName = [dic objectForKey:@"statusName"];
     }
     if ([dic objectForKey:@"title"]) {
-        _title = [dic objectForKey:@"title"];
+        _title = [[dic objectForKey:@"title"] description];
     }
     if ([dic objectForKey:@"typeA"]) {
         _typeA = [dic objectForKey:@"typeA"];

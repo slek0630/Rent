@@ -552,6 +552,37 @@ static REngine* s_ShareInstance = nil;
     return [self reDirectXECommonWithFormatDic:formatDic withData:nil withTag:tag withTimeout:CONNECT_TIMEOUT error:nil];
 }
 
+//筛选房源列表信息
+- (BOOL)getHouseListWithNum:(NSUInteger)pagenum count:(NSUInteger)count qRoomAreaMin:(NSString *)aMin qRoomAreaMax:(NSString *)aMax qPriceMin:(NSString *)pMin qPriceMax:(NSString *)pMax qCanCooking:(NSString *)cooking qHaveFurniture:(NSString *)furniture qDirection:(NSString *)dire tag:(int)tag
+{
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] init];
+    NSDictionary* formatDic = [self getRequestJsonWithUrl:[NSString stringWithFormat:@"%@/houseRenting/houseApi/getHouseListData",API_URL] type:1 parameters:params];
+    [params setObject:[NSNumber numberWithInteger:pagenum] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInteger:count] forKey:@"rows"];
+    if (aMin) {
+        [params setObject:aMin forKey:@"qRoomAreaMin"];
+    }
+    if (aMax) {
+        [params setObject:aMax forKey:@"qRoomAreaMax"];
+    }
+    if (pMin) {
+        [params setObject:pMin forKey:@"qPriceMin"];
+    }
+    if (pMax) {
+        [params setObject:pMax forKey:@"qPriceMax"];
+    }
+    if (cooking) {
+        [params setObject:cooking forKey:@"qCanCooking"];
+    }
+    if (furniture) {
+        [params setObject:furniture forKey:@"qHaveFurniture"];
+    }
+    if (dire) {
+        [params setObject:dire forKey:@"qDirection"];
+    }
+    return [self reDirectXECommonWithFormatDic:formatDic withData:nil withTag:tag withTimeout:CONNECT_TIMEOUT error:nil];
+}
+
 //获取房源详情
 - (BOOL)getHouseDetailWithHid:(NSString *)houseId tag:(int)tag{
     NSMutableDictionary* params = [[NSMutableDictionary alloc] init];

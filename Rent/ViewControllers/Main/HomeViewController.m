@@ -14,6 +14,7 @@
 #import "RHouseInfo.h"
 #import "HomeViewCell.h"
 #import "HouseDetailViewController.h"
+#import "HouseFilterViewController.h"
 
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>{
     ODRefreshControl *_themeControl;
@@ -43,6 +44,7 @@
 
 - (void)initNormalTitleNavBarSubviews{
     [self setTitle:@"找房"];
+    [self setLeftButtonWithTitle:@"筛选" selector:@selector(filterAction)];
     [self setRightButtonWithTitle:@"登录" selector:@selector(loginAction)];
 }
 
@@ -79,7 +81,6 @@
             [houseInfo setHouseInfoByDic:dic];
             [weakSelf.houseArray addObject:houseInfo];
         }
-        
         [weakSelf.findTableView reloadData];
     }tag:tag];
 }
@@ -138,6 +139,19 @@
 
 - (void)loginAction{
     NSLog(@"==========登录");
+}
+
+- (void)filterAction{
+    __weak HomeViewController *weakSelf = self;
+    HouseFilterViewController *hfVC = [[HouseFilterViewController alloc] init];
+    hfVC.housesFilterCallBack = ^(NSArray* array){
+        if (array) {
+            weakSelf.houseArray = [[NSMutableArray alloc] init];
+            [weakSelf.houseArray addObjectsFromArray:array];
+            [weakSelf.findTableView reloadData];
+        }
+    };
+    [self.navigationController pushViewController:hfVC animated:YES];
 }
 
 @end

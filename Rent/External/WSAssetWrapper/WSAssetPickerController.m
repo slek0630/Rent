@@ -65,10 +65,10 @@
     self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 //    self.toolbar.barStyle = UIBarStyleBlackTranslucent;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {
-//        [[UINavigationBar appearance] setBarTintColor:SKIN_COLOR];
+        [[UINavigationBar appearance] setBarTintColor:SKIN_COLOR];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     } else {
-//        [[UINavigationBar appearance] setTintColor:SKIN_COLOR];
+        [[UINavigationBar appearance] setTintColor:SKIN_COLOR];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
     albumTableViewController.assetPickerState = self.assetPickerState;

@@ -111,8 +111,8 @@
             tabItem.itemIconImageView.highlightedImage = [UIImage imageNamed:@"main_tabbar_icon_hover"];
             tabItem.itemLabel.text = @"找房";
         }else if (tagIndex == 1){
-            tabItem.itemIconImageView.image = [UIImage imageNamed:@"evaluations_tabbar_icon"];
-            tabItem.itemIconImageView.highlightedImage = [UIImage imageNamed:@"evaluations_tabbar_icon_hover"];
+            tabItem.itemIconImageView.image = [UIImage imageNamed:@"mine_tabbar_icon"];
+            tabItem.itemIconImageView.highlightedImage = [UIImage imageNamed:@"mine_tabbar_icon_hover"];
             tabItem.itemLabel.text = @"我的";
         }else if (tagIndex == 2){
             tabItem.itemIconImageView.image = [UIImage imageNamed:@"chat_tabbar_icon"];

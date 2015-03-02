@@ -69,6 +69,8 @@ typedef void(^onLSMsgFileProgressBlock)(NSUInteger receivedSize, long long expec
 ////http://localhost:8080/houseRenting/houseApi/getHouseListData?page=1&rows=10
 //获取房源列表信息
 - (BOOL)getHouseInfoWithNum:(NSUInteger)pagenum count:(NSUInteger)count tag:(int)tag;
+//筛选房源列表信息
+- (BOOL)getHouseListWithNum:(NSUInteger)pagenum count:(NSUInteger)count qRoomAreaMin:(NSString *)aMin qRoomAreaMax:(NSString *)aMax qPriceMin:(NSString *)pMin qPriceMax:(NSString *)pMax qCanCooking:(NSString *)cooking qHaveFurniture:(NSString *)furniture qDirection:(NSString *)dire tag:(int)tag;
 //获取房源详情
 - (BOOL)getHouseDetailWithHid:(NSString *)houseId tag:(int)tag;
 

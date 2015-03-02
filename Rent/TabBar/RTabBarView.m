@@ -70,8 +70,8 @@
     if (!sender.selected) {
         sender.selected = YES;
         self.selectedTabBarItem = sender;
-        //        [self.selectedTabBarItem.bkImageView setBackgroundColor:SKIN_COLOR];
-//        self.selectedTabBarItem.itemLabel.textColor = SKIN_COLOR;
+        //[self.selectedTabBarItem.bkImageView setBackgroundColor:SKIN_COLOR];
+        self.selectedTabBarItem.itemLabel.textColor = SKIN_COLOR;
     }
     
     [self.delegate tabBar:self didSelectTabAtIndex:[self.items indexOfObject:sender]];
@@ -110,7 +110,7 @@
     
     [self.selectedTabBarItem setSelected:YES];
     //    [self.selectedTabBarItem.bkImageView setBackgroundColor:SKIN_COLOR];
-//    self.selectedTabBarItem.itemLabel.textColor = SKIN_COLOR;
+    self.selectedTabBarItem.itemLabel.textColor = SKIN_COLOR;
 }
 
 -(void) setFrame:(CGRect)aFrame {
